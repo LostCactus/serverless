@@ -13,9 +13,8 @@ exports.handler = (event, handler, callback) => {
     // added -n because echo includes a newline, causing md5sum to be wrong
     var cmd = 'echo -n "' + input + '" | md5sum | sed "s/ -//"';
     
-    value = "teststring"
 
-if (!/^[a-z0-9 .-]*$/i.test(value)) {
+if (!/^[a-z0-9 .-]*$/i.test(input)) {
         console.log('Bad input for ' + input);
         callback(null, {
                 statusCode: 400,
